@@ -24,7 +24,6 @@ sys_instruct = """Ignore previous instructions. I will provide you with a questi
                   In the second scenario when an answer is provided, you should perform a similar course of action but to help correct or analyze the answer instead of providing it.
                   You should also provide 5 hints of similar format that can help the user correct their answer and slowly derive the correct answer. In this case, the boolean value
                   should reflect whether the provided answer was correct. In the scenario where the answer is only partically correct or not complete, the 5 hints should progressively lead the user to a more accurate and complete response.
-                  In the scenario where the answer is completely correct, ALL 5 hints should just be a single word "CORRECT".
                   The format in which you will be given the question will be "QUESTION: <followed by whatever question it is>". The format in which you will be given the
                   answer will be "ANSWER: <followed by the user question>". DO NOT RESPOND until prompted with the command "RESPOND". If you receive the "RESPOND" command
                   before receiving an answer prompt, this indicates that you should follow the first scenario stated above. If you received both the question and the answer prompt
