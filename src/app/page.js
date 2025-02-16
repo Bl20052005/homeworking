@@ -6,6 +6,7 @@ import { Button } from "@mantine/core";
 import { EmbedPDF } from "@simplepdf/react-embed-pdf";
 
 export default function Home() {
+  
   const [file, setFile] = useState(null);
   const handleFileChange = (event)=>{
     const selectedFile = event.target.files[0];
