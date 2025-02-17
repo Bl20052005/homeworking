@@ -27,17 +27,29 @@ sys_instruct = """Ignore previous instructions. I will provide you with a questi
                   The format in which you will be given the question will be "QUESTION: <followed by whatever question it is>". The format in which you will be given the
                   answer will be "ANSWER: <followed by the user question>". DO NOT RESPOND until prompted with the command "RESPOND". If you receive the "RESPOND" command
                   before receiving an answer prompt, this indicates that you should follow the first scenario stated above. If you received both the question and the answer prompt
-                  when the "RESPOND" command is given, you should follow the second scenario. If the response contain math equations, USE A LATEX FORMAT.
+                  when the "RESPOND" command is given, you should follow the second scenario. WHEN ANY OF THE HINTS REQUIRE MATH, USE A KATEX FORMAT and surround the KaTeX expression with <KATEX>.
                   If you judge the question to be nonsensical or you are unsure of what the question states or means, ALL 5 hints should just be the word "NONSENSE".
                   """
 
 def provide_response(input: tuple[str, str]) -> str:
   if input[1] == "":
-    response = client.models.generate_content(model="gemini-2.0-flash", contents=["QUESTION: " + input[0], "RESPOND"], config=types.GenerateContentConfig(max_output_tokens=8192,temperature=0.1,system_instruction=sys_instruct, response_mime_type="application/json", response_schema=list[Hint]))
+    response = client.models.generate_content(model="gemini-2.0-flash", 
+                                              contents=["QUESTION: " + input[0], "RESPOND"], 
+                                              config=types.GenerateContentConfig(max_output_tokens=8192,
+                                                                                 temperature=0.1,
+                                                                                 system_instruction=sys_instruct, 
+                                                                                 response_mime_type="application/json", 
+                                                                                 response_schema=list[Hint]))
     return response.text
 
   else:
-    response = client.models.generate_content(model="gemini-2.0-flash", contents=["QUESTION: " + input[0], "ANSWER: " + input[1], "RESPOND"], config=types.GenerateContentConfig(max_output_tokens=8192,temperature=0.1,system_instruction=sys_instruct, response_mime_type="application/json", response_schema=list[Hint]))
+    response = client.models.generate_content(model="gemini-2.0-flash", 
+                                              contents=["QUESTION: " + input[0], "ANSWER: " + input[1], "RESPOND"], 
+                                              config=types.GenerateContentConfig(max_output_tokens=8192,
+                                                                                 temperature=0.1,
+                                                                                 system_instruction=sys_instruct, 
+                                                                                 response_mime_type="application/json", 
+                                                                                 response_schema=list[Hint]))
     return response.text
   
 # print(provide_response(("Who composed the 1812 overture?", "")))
@@ -46,9 +58,8 @@ def provide_response(input: tuple[str, str]) -> str:
 # print()
 # print(provide_response(("Who composed the 1812 overture?", "Pyotr Ilyich Tchaikovsky")))
 
-
 # print(provide_response(("(x+5)(x-2) = 40", "")))
 # print()
-# print(provide_response(("(x+5)(x-2) = 40", "x=2.4")))
+# print(provide_response(("(x+5)(x-2) = 40", "x=5.72841")))
 # print()
 # print(provide_response(("(x+5)(x-2) = 40", "x=5.72841, x=-8.72841")))
