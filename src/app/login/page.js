@@ -1,5 +1,11 @@
-export default function Page() {
-    return(
-        <div>login!</div>
-    )
+import Login from "./components/logIn";
+
+function Page() {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
+
+export default Page;
