@@ -1,16 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import {useState} from "react";
+import { useState } from "react";
 import { Button } from "@mantine/core";
-import { EmbedPDF } from "@simplepdf/react-embed-pdf";
+// import { EmbedPDF } from "@simplepdf/react-embed-pdf";
+
+// import Latex from "react-latex-next";
+// import { InlineMath, BlockMath } from "react-katex";
+import LatexRender from "./latexRender";
 
 export default function Home() {
-  
   const [file, setFile] = useState(null);
-  const handleFileChange = (event)=>{
+  const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    if(selectedFile && selectedFile.type === "application/pdf") {
+    if (selectedFile && selectedFile.type === "application/pdf") {
       const fileUrl = URL.createObjectURL(selectedFile);
       setFile(fileUrl);
     }
@@ -27,12 +30,14 @@ export default function Home() {
         ></input>
       </Button>
 
-      {file && file.type === "application/pdf" && (
-        <div style={{marginTop: 20}}>
+      {/* {file && file.type === "application/pdf" && (
+        <div style={{ marginTop: 20 }}>
           <h3>PDF: </h3>
-          <EmbedPDF file={file}/>
+          <EmbedPDF file={file} />
         </div>
-      )}
+      )} */}
+
+      <LatexRender text="\psi\rangle \xrightarrow{1} \oplus \xrightarrow{2} \oplus \xrightarrow{3}" />
     </main>
   );
 }
