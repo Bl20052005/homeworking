@@ -3,6 +3,7 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import Header from "./tabs";
+import DottedBackground from "./components/dotted_bg.js";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
+        <DottedBackground/>
         <>{children}</>
       </body>
     </html>

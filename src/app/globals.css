@@ -19,7 +19,7 @@ body {
   /* background: var(--background); */
   /*background: rgb(9,39,70);*/
   background: conic-gradient(
-    at 0% 0%,
+    at 100% 100%,
     rgba(9, 39, 70, 1),
     rgba(6, 19, 33, 1),
     rgba(9, 39, 70, 1)
@@ -36,16 +36,12 @@ h1 {
   text-align: center;
 }
 
-.tabs {
-  width: 100%;
-}
 
 .tabs .tabs-header {
-  padding: 5px 0;
-  display: flex;
+  padding-bottom: 5px;
+  /* display: flex; */
   position: relative;
   background-color: #27315d;
-  width: 100%;
 }
 
 .tabs .tabs-header .button {
@@ -71,19 +67,11 @@ h1 {
   color: #0084b5;
 }
 
-/* .tabs .tabs-panel {
-  background: #f8f8f8;
-  height: 150px; 
-  padding: 15;
-  border-radius: 2px;
-  outline: none;
+.latex-render {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
 }
-
-.tabs .tabs-panel-active{
-  display: block;
-  height: 150px; 
-  padding: 15;
-  border-radius: 2px;
-  outline: none;
-  background: #0084b5;
-} */

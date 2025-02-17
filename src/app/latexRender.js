@@ -12,7 +12,7 @@ function LatexRender({ text }) {
     }
   }, [text]);
 
-  return <div ref={ref}></div>;
+  return <div className="latex-render" ref={ref}></div>;
 }
 
 export default LatexRender;
