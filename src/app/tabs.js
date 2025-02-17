@@ -13,7 +13,9 @@ export default function Header() {
         <div className="tabs">
           <div className="tabs-header">
             <button
-              className={activeTab == 0 ? "button-active" : "button-inactive"}
+              className={`button ${
+                activeTab == 0 ? "button-active" : "button-inactive"
+              }`}
               onClick={() => {
                 router.push("/");
                 setActiveTab(0);
@@ -22,7 +24,9 @@ export default function Header() {
               Home
             </button>
             <button
-              className={activeTab == 1 ? "button-active" : "button-inactive"}
+              className={`button ${
+                activeTab == 1 ? "button-active" : "button-inactive"
+              }`}
               onClick={() => {
                 router.push("/login");
                 setActiveTab(1);
