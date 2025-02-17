@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       )} */}
 
-      <LatexRender text="\psi\rangle \xrightarrow{1} \oplus \xrightarrow{2} \oplus \xrightarrow{3}" />
+      <LatexRender text="x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}" />
     </main>
   );
 }
